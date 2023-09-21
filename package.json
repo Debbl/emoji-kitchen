@@ -1,7 +1,8 @@
 {
   "name": "emoji-kitchen",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
+  "author": "Debbl <me@aiwan.run> (https://aiwan.run)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -21,5 +22,8 @@
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@debbl/eslint-config": "^0.0.64"
   }
 }
