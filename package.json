@@ -2,12 +2,14 @@
   "name": "emoji-kitchen",
   "version": "0.0.1",
   "private": true,
+  "packageManager": "bun@1.0.2",
   "author": "Debbl <me@aiwan.run> (https://aiwan.run)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "@types/node": "20.6.3",
