@@ -1,15 +1,15 @@
 {
   "name": "emoji-kitchen",
+  "type": "module",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "bun@1.0.2",
   "author": "Debbl <me@aiwan.run> (https://aiwan.run)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ignore-path .gitignore",
-    "lint:fix": "eslint . --fix --ignore-path .gitignore"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@types/node": "20.6.3",
@@ -26,6 +26,6 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@debbl/eslint-config": "^0.0.64"
+    "@debbl/eslint-config": "1.0.0-beta.11"
   }
 }
