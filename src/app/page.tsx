@@ -1,3 +1,9 @@
+import Kitchen from "../components/Kitchen";
+
 export default function Home() {
-  return <main className="text-red-800">hello</main>;
+  return (
+    <main>
+      <Kitchen />
+    </main>
+  );
 }
