@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 "use client";
 import { useMemo, useState } from "react";
 import random1dice from "@iconify/icons-fad/random-1dice";
@@ -89,8 +90,10 @@ const Kitchen = () => {
         setToIcon(copy);
         clearTimeout(id);
       }, 600);
+      if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+        alert("部分浏览器可能无法复制图片，建议使用电脑端复制!");
+      }
     } catch {
-      // eslint-disable-next-line no-alert
       alert("浏览器暂不支持复制命令");
     }
   };
