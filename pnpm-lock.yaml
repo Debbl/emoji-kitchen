@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@debbl/ahooks':
-    specifier: ^0.0.7
-    version: 0.0.7(react@18.2.0)
+    specifier: ^0.0.8
+    version: 0.0.8(react@18.2.0)
   '@types/node':
     specifier: 20.6.3
     version: 20.6.3
@@ -20,6 +20,9 @@ dependencies:
   autoprefixer:
     specifier: 10.4.16
     version: 10.4.16(postcss@8.4.30)
+  clipboard-polyfill:
+    specifier: ^4.0.1
+    version: 4.0.1
   eslint:
     specifier: 8.49.0
     version: 8.49.0
@@ -98,8 +101,8 @@ packages:
       regenerator-runtime: 0.14.0
     dev: false
 
-  /@debbl/ahooks@0.0.7(react@18.2.0):
-    resolution: {integrity: sha512-yo0Y4Ji14Of/3FDMVQwJDOusFxYvJe9mVcpUSPHiPu4DjzvJp01vHKfY3fLYYNVoXWriZx+0YU6AqIhD06G+Cg==}
+  /@debbl/ahooks@0.0.8(react@18.2.0):
+    resolution: {integrity: sha512-3fBIbPJ+NR1JpZQCrnKw4zTzsG4r0Vu1xFAzbIWB5appGw1LkAnew9/JvCiVJNvO9/HOIaKmOucSAsRZ+x/lXw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
@@ -1010,6 +1013,10 @@ packages:
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
+    dev: false
+
+  /clipboard-polyfill@4.0.1:
+    resolution: {integrity: sha512-oOxooaJd9dzy78jk1fw4IL+J0SiBn+W24KqUYUwsr0OWEsb5aZlKAWglr9Fg/XEFQMT3ZmJ2AnRoRMZZOMcOQQ==}
     dev: false
 
   /color-convert@1.9.3:

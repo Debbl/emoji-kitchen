@@ -7,6 +7,7 @@ import xlrplugIcon from "@iconify/icons-fad/xlrplug";
 import random2dice from "@iconify/icons-fad/random-2dice";
 import recordIcon from "@iconify/icons-fad/record";
 import { useGitHubInfo } from "@debbl/ahooks";
+import * as clipboard from "clipboard-polyfill";
 
 import Cell from "./Cell";
 import { emojiData, knownSupportedEmoji } from "~/constants";
@@ -79,14 +80,19 @@ const Kitchen = () => {
     });
     const blob = await response.blob();
 
-    const clipboardItem = new ClipboardItem({ "image/png": blob });
-    await navigator.clipboard.write([clipboardItem]);
+    try {
+      const clipboardItem = new clipboard.ClipboardItem({ "image/png": blob });
+      await clipboard.write([clipboardItem]);
 
-    setToIcon(xlrplugIcon);
-    const id = setTimeout(() => {
-      setToIcon(copy);
-      clearTimeout(id);
-    }, 600);
+      setToIcon(xlrplugIcon);
+      const id = setTimeout(() => {
+        setToIcon(copy);
+        clearTimeout(id);
+      }, 600);
+    } catch {
+      // eslint-disable-next-line no-alert
+      alert("浏览器暂不支持复制命令");
+    }
   };
   const random = () => {
     const left =

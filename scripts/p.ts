@@ -1,3 +1,5 @@
+/* eslint-disable eslint-comments/no-unlimited-disable */
+/* eslint-disable */
 // @ts-nocheck
 import fs from "node:fs";
 import emojiData from "./emojiData.json";
