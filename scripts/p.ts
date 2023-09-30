@@ -1,6 +1,3 @@
-/* eslint-disable eslint-comments/no-unlimited-disable */
-/* eslint-disable */
-// @ts-nocheck
 import fs from "node:fs";
 import emojiData from "./emojiData.json";
 import type { EmojiData } from "~/types";
@@ -14,8 +11,13 @@ function toGoogleRequestEmoji(emojiCodepoint: string) {
 
 let index = 0;
 const output: EmojiData = {};
-Object.keys(emojiData).forEach((leftKey) => {
-  const leftList = emojiData[leftKey];
+type TEmojiData = Record<
+  string,
+  Array<{ leftEmoji: string; rightEmoji: string; date: string }>
+>;
+Object.keys(emojiData as TEmojiData).forEach((leftKey) => {
+  const leftList = (emojiData as TEmojiData)[leftKey];
+
   leftList.forEach((leftItem) => {
     const { leftEmoji, rightEmoji, date } = leftItem;
     if (!output[leftKey]) {
@@ -30,6 +32,7 @@ Object.keys(emojiData).forEach((leftKey) => {
   });
 });
 
-console.log(index);
+// eslint-disable-next-line no-console
+console.log("sum: ", index);
 
-fs.writeFileSync("emojiData_p.json", JSON.stringify(output, null, 2));
+fs.writeFileSync("./emojiData_p.json", JSON.stringify(output, null, 2));

@@ -1,5 +1,3 @@
-/* eslint-disable eslint-comments/no-unlimited-disable */
-/* eslint-disable */
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -11,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       gridTemplateColumns: ({ theme }) => {
-        const spacing = theme("spacing");
+        const spacing = theme("spacing") as Record<string, string>;
 
         return Object.keys(spacing).reduce((accumulator, spacingKey) => {
           return {
