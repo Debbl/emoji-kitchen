@@ -12,6 +12,7 @@ export async function GET({ url }: Request) {
   const res = new Response(emojiBlob, {
     headers: {
       "Content-Type": "image/png",
+      "Cache-Control": "public, max-age=31536000, immutable",
     },
   });
 
