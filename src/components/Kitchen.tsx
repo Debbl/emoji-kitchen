@@ -117,7 +117,7 @@ const Kitchen = () => {
   return (
     <div className="flex select-none flex-col items-center">
       <div className="sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-3 md:p-8">
-        <GitHubInfo className="absolute right-3 top-3 w-4" />
+        <GitHubInfo className="absolute bottom-3 right-3 w-4" />
         <div className="flex gap-x-2 md:gap-x-4">
           <Cell
             icon={random1dice}
