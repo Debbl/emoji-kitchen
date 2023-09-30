@@ -52,7 +52,6 @@ const Kitchen = () => {
       );
   }, [current, emoji.left, emoji.right]);
 
-  // left and right
   const handleClick = (v: string) => {
     if (current === "left") {
       setEmoji({ left: v, right: emoji.right });
@@ -75,7 +74,6 @@ const Kitchen = () => {
       }));
   };
 
-  // to
   const copyImg = async (imgUrl: string) => {
     const response = await fetch(imgUrl, {
       cache: "force-cache",
