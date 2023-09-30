@@ -9,12 +9,12 @@ export async function GET({ url }: Request) {
   });
   const emojiBlob = await emojiRes.blob();
 
-  const res = new Response(emojiBlob, {
+  const response = new Response(emojiBlob, {
     headers: {
       "Content-Type": "image/png",
       "Cache-Control": "public, max-age=31536000, immutable",
     },
   });
 
-  return res;
+  return response;
 }
