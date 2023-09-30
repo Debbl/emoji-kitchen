@@ -1,5 +1,6 @@
 import type { IconifyIcon } from "@iconify/react";
 import { Icon } from "@iconify/react";
+import Image from "next/image";
 
 interface IProps {
   isCurrent?: boolean;
@@ -24,7 +25,14 @@ const Cell = ({
         }`}
       >
         {rawUrl ? (
-          <img className="h-12 w-12" onClick={onClick} src={rawUrl} alt="" />
+          <Image
+            width={48}
+            height={48}
+            className="h-12 w-12"
+            onClick={onClick}
+            src={rawUrl}
+            alt="emoji"
+          />
         ) : (
           <div className="h-12 w-12" onClick={onClick}></div>
         )}

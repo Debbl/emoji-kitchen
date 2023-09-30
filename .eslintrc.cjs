@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["@debbl"],
+  extends: ["next/core-web-vitals", "@debbl"],
 };

@@ -10,6 +10,7 @@ import recordIcon from "@iconify/icons-fad/record";
 import { useGitHubInfo } from "@debbl/ahooks";
 import * as clipboard from "clipboard-polyfill";
 
+import Image from "next/image";
 import Cell from "./Cell";
 import { emojiData, knownSupportedEmoji } from "~/constants";
 
@@ -162,16 +163,20 @@ const Kitchen = () => {
 
       <div className="mt-10 grid w-full grid-cols-fill-12 gap-1 px-12 pb-12 md:gap-2">
         {knownSupportedEmoji.map((v) => (
-          <img
+          <Image
+            width={48}
+            height={48}
+            priority
             className={`z-0 h-12 w-12 ${
               allowList.includes(v)
                 ? "cursor-pointer"
                 : "cursor-not-allowed opacity-50"
             }`}
+            alt={v}
             key={v}
             onClick={() => allowList.includes(v) && handleClick(v)}
             src={`${`${rawUrl}/${v.split("-")[0].padStart(4, "0")}`}.svg`}
-          ></img>
+          />
         ))}
       </div>
     </div>
