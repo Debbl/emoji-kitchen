@@ -136,13 +136,13 @@ const Kitchen = () => {
         <div className="mt-3 flex items-center gap-x-2 md:gap-x-3">
           <div
             onClick={random}
-            className="flex items-center rounded-xl border px-3 py-1"
+            className="flex cursor-pointer items-center rounded-xl border px-3 py-1"
           >
             <Icon className="text-2xl md:text-3xl" icon={random2dice} />
             <span>随机</span>
           </div>
           <div
-            className="flex items-center rounded-xl border px-3 py-1"
+            className="flex cursor-pointer items-center rounded-xl border px-3 py-1"
             onClick={reset}
           >
             <Icon className="text-2xl md:text-3xl" icon={recordIcon} />
