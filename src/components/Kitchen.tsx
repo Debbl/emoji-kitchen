@@ -31,7 +31,7 @@ const Kitchen = () => {
   const [toIcon, setToIcon] = useState<IconifyIcon>(copy);
 
   const { GitHubInfo } = useGitHubInfo(
-    "https://github.com/Debbl/emoji-kitchen"
+    "https://github.com/Debbl/emoji-kitchen",
   );
 
   const toUrl = useMemo(() => {
@@ -48,7 +48,7 @@ const Kitchen = () => {
     if (!emoji.left && !emoji.right) return knownSupportedEmoji;
     else
       return Object.keys(
-        emojiData?.[current === "left" ? emoji.right : emoji.left] ?? {}
+        emojiData?.[current === "left" ? emoji.right : emoji.left] ?? {},
       );
   }, [current, emoji.left, emoji.right]);
 
@@ -63,7 +63,7 @@ const Kitchen = () => {
   };
   const handleRandom = (c: "left" | "right") => {
     const allowList = Object.keys(
-      emojiData[c === "left" ? emoji.right : emoji.left] ?? {}
+      emojiData[c === "left" ? emoji.right : emoji.left] ?? {},
     );
     const randomEmoji = allowList[Math.floor(Math.random() * allowList.length)];
 
@@ -161,20 +161,21 @@ const Kitchen = () => {
 
       <div className="mt-10 grid w-full grid-cols-fill-12 gap-1 px-12 pb-12 md:gap-2">
         {knownSupportedEmoji.map((v) => (
-          <Image
-            width={48}
-            height={48}
-            priority
-            className={`z-0 h-12 w-12 ${
-              allowList.includes(v)
-                ? "cursor-pointer"
-                : "cursor-not-allowed opacity-50"
-            }`}
-            alt={v}
-            key={v}
-            onClick={() => allowList.includes(v) && handleClick(v)}
-            src={`${`${rawUrl}/${v.split("-")[0].padStart(4, "0")}`}.svg`}
-          />
+          <div key={v} className="flex justify-center">
+            <Image
+              width={48}
+              height={48}
+              priority
+              className={`z-0 h-12 w-12 ${
+                allowList.includes(v)
+                  ? "cursor-pointer"
+                  : "cursor-not-allowed opacity-50"
+              }`}
+              alt={v}
+              onClick={() => allowList.includes(v) && handleClick(v)}
+              src={`${`${rawUrl}/${v.split("-")[0].padStart(4, "0")}`}.svg`}
+            />
+          </div>
         ))}
       </div>
     </div>
