@@ -1,7 +1,9 @@
 self.addEventListener("fetch", function (event) {
   if (
-    event.request.url.includes("/api") &&
-    (event.request.url.endsWith(".png") || event.request.url.endsWith(".svg"))
+    (event.request.url.includes("/api") &&
+      (event.request.url.endsWith(".png") ||
+        event.request.url.endsWith(".svg"))) ||
+    new URL(event.request.url).pathname === "/_next/image"
   ) {
     event.respondWith(
       caches.match(event.request).then(function (response) {
