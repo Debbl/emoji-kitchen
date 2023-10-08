@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import { useGitHubInfo } from "@debbl/ahooks";
 import * as clipboard from "clipboard-polyfill";
-
 import Image from "next/image";
 import Cell from "./Cell";
 import type { IIcon } from "~/icons";
