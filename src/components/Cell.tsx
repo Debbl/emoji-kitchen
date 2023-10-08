@@ -1,11 +1,11 @@
-import type { IconifyIcon } from "@iconify/react";
-import { Icon } from "@iconify/react";
 import Image from "next/image";
+import type { IIcon } from "~/icons";
+import Icon from "~/icons";
 
 interface IProps {
   isCurrent?: boolean;
   rawUrl: string;
-  icon: IconifyIcon;
+  icon: IIcon;
   iconClick?: () => any;
   onClick?: () => any;
 }

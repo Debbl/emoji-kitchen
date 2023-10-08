@@ -1,17 +1,19 @@
 /* eslint-disable no-alert */
 "use client";
 import { useMemo, useState } from "react";
-import random1dice from "@iconify/icons-fad/random-1dice";
-import copy from "@iconify/icons-fad/copy";
-import { Icon, type IconifyIcon } from "@iconify/react";
-import xlrplugIcon from "@iconify/icons-fad/xlrplug";
-import random2dice from "@iconify/icons-fad/random-2dice";
-import recordIcon from "@iconify/icons-fad/record";
 import { useGitHubInfo } from "@debbl/ahooks";
 import * as clipboard from "clipboard-polyfill";
 
 import Image from "next/image";
 import Cell from "./Cell";
+import type { IIcon } from "~/icons";
+import Icon, {
+  IconFadDuplicate,
+  IconFadRecord,
+  IconFadXlrplug,
+  IconRandom1dice,
+  IconRandom2dice,
+} from "~/icons";
 import { emojiData, knownSupportedEmoji } from "~/constants";
 
 const rawUrl = "/api/emoji";
@@ -28,7 +30,7 @@ const Kitchen = () => {
     right: "1f522",
   });
   const [current, setCurrent] = useState<"left" | "right">("left");
-  const [toIcon, setToIcon] = useState<IconifyIcon>(copy);
+  const [toIcon, setToIcon] = useState<IIcon>(() => IconFadDuplicate);
 
   const { GitHubInfo } = useGitHubInfo(
     "https://github.com/Debbl/emoji-kitchen",
@@ -84,9 +86,9 @@ const Kitchen = () => {
       const clipboardItem = new clipboard.ClipboardItem({ "image/png": blob });
       await clipboard.write([clipboardItem]);
 
-      setToIcon(xlrplugIcon);
+      setToIcon(() => IconFadXlrplug);
       const id = setTimeout(() => {
-        setToIcon(copy);
+        setToIcon(() => IconFadDuplicate);
         clearTimeout(id);
       }, 600);
       if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
@@ -119,7 +121,7 @@ const Kitchen = () => {
         <GitHubInfo className="absolute bottom-3 right-3 w-4" />
         <div className="flex gap-x-2 md:gap-x-4">
           <Cell
-            icon={random1dice}
+            icon={IconRandom1dice}
             isCurrent={current === "left"}
             rawUrl={getRawUrl(emoji.left)}
             onClick={() => setCurrent("left")}
@@ -127,7 +129,7 @@ const Kitchen = () => {
           />
           <div className="mt-4 text-3xl">+</div>
           <Cell
-            icon={random1dice}
+            icon={IconRandom1dice}
             isCurrent={current === "right"}
             rawUrl={getRawUrl(emoji.right)}
             onClick={() => setCurrent("right")}
@@ -146,14 +148,14 @@ const Kitchen = () => {
             onClick={random}
             className="flex cursor-pointer items-center rounded-xl border px-3 py-1"
           >
-            <Icon className="text-2xl md:text-3xl" icon={random2dice} />
+            <Icon className="text-2xl md:text-3xl" icon={IconRandom2dice} />
             <span>随机</span>
           </div>
           <div
             className="flex cursor-pointer items-center rounded-xl border px-3 py-1"
             onClick={reset}
           >
-            <Icon className="text-2xl md:text-3xl" icon={recordIcon} />
+            <Icon className="text-2xl md:text-3xl" icon={IconFadRecord} />
             全部清除
           </div>
         </div>
