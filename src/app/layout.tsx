@@ -16,7 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script src="/service-worker-register.js" defer></script>
+        <script src="/service-worker-register.js" defer />
+        <script
+          async
+          src="https://analytics.eu.umami.is/script.js"
+          data-website-id="670087e2-7d89-4e60-8769-3847c2003037"
+        />
       </head>
       <body>{children}</body>
     </html>
