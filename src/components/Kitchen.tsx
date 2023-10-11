@@ -7,6 +7,7 @@ import Image from "next/image";
 import Cell from "./Cell";
 import type { IIcon } from "~/icons";
 import Icon, {
+  IconCarbonLogoGithub,
   IconFadDuplicate,
   IconFadRecord,
   IconFadXlrplug,
@@ -117,7 +118,18 @@ const Kitchen = () => {
   return (
     <div className="flex select-none flex-col items-center">
       <div className="sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-3 md:p-8">
-        <GitHubInfo className="absolute bottom-3 right-3 w-4" />
+        <a
+          href="https://github.com/Debbl/emoji-kitchen/"
+          data-umami-event="click-github-link"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Icon
+            className="absolute bottom-3 right-3 w-4"
+            icon={IconCarbonLogoGithub}
+          />
+        </a>
+
         <div className="flex gap-x-2 md:gap-x-4">
           <Cell
             icon={IconRandom1dice}
