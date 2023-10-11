@@ -21,6 +21,7 @@ export default function RootLayout({
           async
           src="https://analytics.eu.umami.is/script.js"
           data-website-id="f47e1fa6-e5a8-46de-91fe-4b69c144f3dd"
+          async
         />
       </head>
       <body>{children}</body>
