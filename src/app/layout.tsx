@@ -20,7 +20,7 @@ export default function RootLayout({
         <script
           async
           src="https://umami.aiwan.run/script.js"
-          data-website-id="636b5f61-1018-4307-9c93-01c343a82136"
+          data-website-id="7f572014-052a-4ce8-96cf-ed4d7d51b8ec"
         />
       </head>
       <body>{children}</body>
