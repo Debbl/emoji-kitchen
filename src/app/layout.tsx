@@ -18,9 +18,9 @@ export default function RootLayout({
       <head>
         <script src='/service-worker-register.js' defer />
         <script
-          async
+          defer
           src='https://umami.aiwan.run/script.js'
-          data-website-id='7f572014-052a-4ce8-96cf-ed4d7d51b8ec'
+          data-website-id='6dcb438b-a65e-40e5-a34e-b067baef2730'
         />
       </head>
       <body>{children}</body>
