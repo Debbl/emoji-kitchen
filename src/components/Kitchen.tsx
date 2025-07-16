@@ -111,7 +111,7 @@ const Kitchen = () => {
   }
 
   return (
-    <div className='flex select-none flex-col items-center'>
+    <div className='flex flex-col items-center select-none'>
       <div className='sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-3 md:p-8'>
         <a
           href='https://github.com/Debbl/emoji-kitchen/'
@@ -120,7 +120,7 @@ const Kitchen = () => {
           rel='noreferrer'
         >
           <Icon
-            className='absolute bottom-3 right-3 w-4'
+            className='absolute right-3 bottom-3 w-4'
             icon={IconCarbonLogoGithub}
           />
         </a>
@@ -167,7 +167,7 @@ const Kitchen = () => {
         </div>
       </div>
 
-      <div className='mt-10 grid w-full grid-cols-fill-12 gap-1 px-12 pb-12 md:gap-2'>
+      <div className='grid-cols-fill-12 mt-10 grid w-full gap-1 px-12 pb-12 md:gap-2'>
         {knownSupportedEmoji.map((v) => (
           <div key={v} className='flex justify-center'>
             <Image
