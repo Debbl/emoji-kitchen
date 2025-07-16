@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "packageManager": "pnpm@10.13.1",
-  "author": "Debbl <me@aiwan.run> (https://aiwan.run)",
+  "author": "Brendan Dash <me@aiwan.run> (https://aiwan.run)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,19 +15,20 @@
   "dependencies": {
     "@debbl/ahooks": "^0.4.1",
     "clipboard-polyfill": "^4.1.1",
-    "next": "14.1.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "next": "^15.4.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@debbl/eslint-config": "^3.12.0",
-    "@types/node": "20.6.5",
-    "@types/react": "18.2.23",
-    "@types/react-dom": "18.2.8",
+    "@types/node": "^24.0.14",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
     "autoprefixer": "10.4.16",
     "eslint": "^9.31.0",
     "eslint-config-next": "13.5.3",
     "postcss": "8.4.31",
+    "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
   }

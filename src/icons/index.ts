@@ -1,3 +1,3 @@
-export * from "./Icon";
+export * from './Icon'
 
-export { Icon as default } from "./Icon";
+export { Icon as default } from './Icon'
