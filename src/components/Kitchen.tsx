@@ -23,7 +23,7 @@ const getRawUrl = (v?: string) => {
   return `${`${rawUrl}/${v.split('-')[0].padStart(4, '0')}`}.svg`
 }
 
-const Kitchen = () => {
+export function Kitchen() {
   const [emoji, setEmoji] = useState({
     left: '1fa84',
     right: '1f522',
@@ -43,10 +43,10 @@ const Kitchen = () => {
   }, [emoji])
   const allowList = useMemo(() => {
     if (!emoji.left && !emoji.right) return knownSupportedEmoji
-    else
-      return Object.keys(
-        emojiData?.[current === 'left' ? emoji.right : emoji.left] ?? {},
-      )
+
+    return Object.keys(
+      emojiData?.[current === 'left' ? emoji.right : emoji.left] ?? {},
+    )
   }, [current, emoji.left, emoji.right])
 
   const handleClick = (v: string) => {
@@ -87,10 +87,10 @@ const Kitchen = () => {
         clearTimeout(id)
       }, 600)
       if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-        alert('部分浏览器可能无法复制图片，建议使用电脑端复制!')
+        window.alert('部分浏览器可能无法复制图片，建议使用电脑端复制!')
       }
     } catch {
-      alert('浏览器暂不支持复制命令')
+      window.alert('浏览器暂不支持复制命令')
     }
   }
   const random = () => {
@@ -189,5 +189,3 @@ const Kitchen = () => {
     </div>
   )
 }
-
-export default Kitchen
