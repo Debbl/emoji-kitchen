@@ -1,6 +1,5 @@
 /* eslint-disable no-alert */
 'use client'
-import { useGitHubInfo } from '@debbl/ahooks'
 import * as clipboard from 'clipboard-polyfill'
 import Image from 'next/image'
 import { useMemo, useState } from 'react'
