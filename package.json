@@ -3,23 +3,24 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "packageManager": "pnpm@10.13.1",
   "author": "Debbl <me@aiwan.run> (https://aiwan.run)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint ",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "@debbl/ahooks": "^0.0.10",
-    "clipboard-polyfill": "^4.0.1",
+    "@debbl/ahooks": "^0.4.1",
+    "clipboard-polyfill": "^4.1.1",
     "next": "14.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@debbl/eslint-config": "^0.0.65",
+    "@debbl/eslint-config": "^3.12.0",
     "@types/node": "20.6.5",
     "@types/react": "18.2.23",
     "@types/react-dom": "18.2.8",
