@@ -16,7 +16,6 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <head>
-        <script src='/service-worker-register.js' defer />
         <script
           defer
           src='https://umami.aiwan.run/script.js'
