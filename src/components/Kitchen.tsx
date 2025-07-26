@@ -2,6 +2,7 @@
 'use client'
 import * as clipboard from 'clipboard-polyfill'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useMemo, useState } from 'react'
 import { emojiData, knownSupportedEmoji } from '~/constants'
 import Icon, {
@@ -26,7 +27,7 @@ const getRawUrl = (v?: string) => {
 export function Kitchen() {
   const [emoji, setEmoji] = useState({
     left: '1fa84',
-    right: '1f522',
+    right: '1f349',
   })
   const [current, setCurrent] = useState<'left' | 'right'>('left')
   const [toIcon, setToIcon] = useState<IIcon>(() => IconFadDuplicate)
@@ -113,7 +114,7 @@ export function Kitchen() {
   return (
     <div className='flex flex-col items-center select-none'>
       <div className='sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-3 md:p-8'>
-        <a
+        <Link
           href='https://github.com/Debbl/emoji-kitchen/'
           data-umami-event='click-github-link'
           target='_blank'
@@ -123,7 +124,7 @@ export function Kitchen() {
             className='absolute right-3 bottom-3 w-4'
             icon={IconCarbonLogoGithub}
           />
-        </a>
+        </Link>
 
         <div className='flex gap-x-2 md:gap-x-4'>
           <Cell
