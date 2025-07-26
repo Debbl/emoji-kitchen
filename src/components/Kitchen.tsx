@@ -1,9 +1,12 @@
 /* eslint-disable no-alert */
 'use client'
 import * as clipboard from 'clipboard-polyfill'
+import { useAtom } from 'jotai'
+import { BookMinusIcon, BookPlusIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import { seoAtom } from '~/atoms/seo'
 import { emojiData, knownSupportedEmoji } from '~/constants'
 import Icon, {
   IconCarbonLogoGithub,
@@ -14,6 +17,7 @@ import Icon, {
   IconRandom2dice,
 } from '~/icons'
 import Cell from './Cell'
+import { Button } from './ui/button'
 import type { IIcon } from '~/icons'
 
 const rawUrl = '/api/emoji'
@@ -31,6 +35,7 @@ export function Kitchen() {
   })
   const [current, setCurrent] = useState<'left' | 'right'>('left')
   const [toIcon, setToIcon] = useState<IIcon>(() => IconFadDuplicate)
+  const [seo, setSeo] = useAtom(seoAtom)
 
   const toUrl = useMemo(() => {
     if (!emoji.left || !emoji.right) return ''
@@ -114,17 +119,24 @@ export function Kitchen() {
   return (
     <div className='flex flex-col items-center select-none'>
       <div className='sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-3 md:p-8'>
-        <Link
-          href='https://github.com/Debbl/emoji-kitchen/'
-          data-umami-event='click-github-link'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <Icon
-            className='absolute right-3 bottom-3 w-4'
-            icon={IconCarbonLogoGithub}
-          />
-        </Link>
+        <div className='absolute right-3 bottom-3 flex items-center gap-x-2'>
+          <Link
+            href='https://github.com/Debbl/emoji-kitchen/'
+            data-umami-event='click-github-link'
+            target='_blank'
+            rel='noreferrer'
+          >
+            <Icon className='w-4' icon={IconCarbonLogoGithub} />
+          </Link>
+          <Button
+            className='size-4'
+            variant='outline'
+            size='icon'
+            onClick={() => setSeo(!seo)}
+          >
+            {seo ? <BookMinusIcon /> : <BookPlusIcon />}
+          </Button>
+        </div>
 
         <div className='flex gap-x-2 md:gap-x-4'>
           <Cell
