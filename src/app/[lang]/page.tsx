@@ -28,7 +28,7 @@ export default function Home() {
   return (
     <main>
       <Kitchen />
-      {seo && <SEO className='mx-auto mt-10 max-w-2xl' />}
+      {seo && <SEO className='mx-auto mt-10 max-w-2xl px-4' />}
     </main>
   )
 }
