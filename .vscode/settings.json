@@ -25,5 +25,8 @@
       "severity": "warn"
     }
   ],
-  "cSpell.words": ["serwist"]
+  "cSpell.words": [
+    "lingui",
+    "serwist"
+  ]
 }

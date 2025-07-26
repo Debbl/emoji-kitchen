@@ -1,5 +1,4 @@
-import { Provider } from 'jotai'
-import { WEBSITE } from './constants'
+import { WEBSITE } from '~/app/constants'
 import './globals.css'
 import type { Metadata } from 'next'
 
@@ -58,18 +57,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang='en'>
-      <head>
-        <script
-          defer
-          src='https://umami.aiwan.run/script.js'
-          data-website-id='6dcb438b-a65e-40e5-a34e-b067baef2730'
-        />
-      </head>
-      <body>
-        <Provider>{children}</Provider>
-      </body>
-    </html>
-  )
+  return children
 }

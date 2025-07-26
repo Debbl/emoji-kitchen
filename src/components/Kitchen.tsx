@@ -1,11 +1,14 @@
 /* eslint-disable no-alert */
 'use client'
+import { useLingui } from '@lingui/react'
+import { Trans } from '@lingui/react/macro'
 import * as clipboard from 'clipboard-polyfill'
-import { useAtom } from 'jotai'
-import { BookMinusIcon, BookPlusIcon } from 'lucide-react'
+import { useAtom, useSetAtom } from 'jotai'
+import { BookMinusIcon, BookPlusIcon, LanguagesIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import { langAtom } from '~/atoms/lang'
 import { seoAtom } from '~/atoms/seo'
 import { emojiData, knownSupportedEmoji } from '~/constants'
 import Icon, {
@@ -36,6 +39,8 @@ export function Kitchen() {
   const [current, setCurrent] = useState<'left' | 'right'>('left')
   const [toIcon, setToIcon] = useState<IIcon>(() => IconFadDuplicate)
   const [seo, setSeo] = useAtom(seoAtom)
+  const setLang = useSetAtom(langAtom)
+  const { i18n } = useLingui()
 
   const toUrl = useMemo(() => {
     if (!emoji.left || !emoji.right) return ''
@@ -116,17 +121,28 @@ export function Kitchen() {
     })
   }
 
+  const handleLangChange = () => {
+    const otherLang = i18n.locale === 'en' ? 'zh' : 'en'
+    setLang(otherLang)
+  }
+
   return (
     <div className='flex flex-col items-center select-none'>
       <div className='sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-3 md:p-8'>
         <div className='absolute right-3 bottom-3 flex items-center gap-x-2'>
+          <Link
+            href={`/${i18n.locale === 'en' ? 'zh' : '/'}`}
+            onClick={handleLangChange}
+          >
+            <LanguagesIcon className='size-4' />
+          </Link>
           <Link
             href='https://github.com/Debbl/emoji-kitchen/'
             data-umami-event='click-github-link'
             target='_blank'
             rel='noreferrer'
           >
-            <Icon className='w-4' icon={IconCarbonLogoGithub} />
+            <Icon className='size-4' icon={IconCarbonLogoGithub} />
           </Link>
           <Button
             className='size-4'
@@ -168,14 +184,18 @@ export function Kitchen() {
             className='flex cursor-pointer items-center rounded-xl border px-3 py-1'
           >
             <Icon className='text-2xl md:text-3xl' icon={IconRandom2dice} />
-            <span>随机</span>
+            <span>
+              <Trans>Random</Trans>
+            </span>
           </div>
           <div
             className='flex cursor-pointer items-center rounded-xl border px-3 py-1'
             onClick={reset}
           >
             <Icon className='text-2xl md:text-3xl' icon={IconFadRecord} />
-            全部清除
+            <span>
+              <Trans>Reset</Trans>
+            </span>
           </div>
         </div>
       </div>

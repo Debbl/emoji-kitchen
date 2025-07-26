@@ -1,3 +1,5 @@
+'use client'
+import { useLingui } from '@lingui/react'
 import Markdown from 'react-markdown'
 
 const markdownZh = `
@@ -274,16 +276,12 @@ Emoji Kitchen is an innovative online tool that allows you to easily combine two
 > 💡 **Tip**: Try different emoji combinations, you might discover some unexpected and interesting results!
 `
 
-export function SEO({
-  lang = 'en',
-  className,
-}: {
-  lang?: 'en' | 'zh'
-  className?: string
-}) {
+export function SEO({ className }: { className?: string }) {
+  const { i18n } = useLingui()
+
   return (
     <div className={cn('prose', className)}>
-      <Markdown>{lang === 'en' ? markdownEn : markdownZh}</Markdown>
+      <Markdown>{i18n.locale === 'en' ? markdownEn : markdownZh}</Markdown>
     </div>
   )
 }

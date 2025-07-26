@@ -1,0 +1,16 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-07-26 21:03+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/components/Kitchen.tsx:173
+msgid "Random"
+msgstr "Random"
+
+#: src/components/Kitchen.tsx:182
+msgid "Reset"
+msgstr "Reset"
