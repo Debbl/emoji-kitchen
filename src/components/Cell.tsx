@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useIsHydrated } from '~/hooks/use-is-hydrated'
 import Icon from '~/icons'
 import type { IIcon } from '~/icons'
 
@@ -17,14 +18,18 @@ const Cell = ({
   icon,
   iconClick,
 }: IProps) => {
+  const isHydrated = useIsHydrated()
+
   return (
     <div className='flex flex-col items-center gap-y-3'>
       <div
-        className={`cursor-pointer rounded-lg p-3 hover:bg-gray-100${
-          isCurrent ? 'bg-gray-200' : ''
-        }`}
+        className={cn(
+          'cursor-pointer rounded-lg p-3 hover:bg-gray-100',
+          isCurrent && 'bg-gray-200',
+          !isHydrated && 'bg-accent animate-pulse',
+        )}
       >
-        {rawUrl ? (
+        {rawUrl && isHydrated ? (
           <Image
             width={48}
             height={48}

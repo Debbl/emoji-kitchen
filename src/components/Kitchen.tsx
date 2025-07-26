@@ -8,6 +8,7 @@ import { BookMinusIcon, BookPlusIcon, LanguagesIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import { emojiAtom } from '~/atoms/emoji'
 import { langAtom } from '~/atoms/lang'
 import { seoAtom } from '~/atoms/seo'
 import { emojiData, knownSupportedEmoji } from '~/constants'
@@ -32,10 +33,7 @@ const getRawUrl = (v?: string) => {
 }
 
 export function Kitchen() {
-  const [emoji, setEmoji] = useState({
-    left: '1fa84',
-    right: '1f349',
-  })
+  const [emoji, setEmoji] = useAtom(emojiAtom)
   const [current, setCurrent] = useState<'left' | 'right'>('left')
   const [toIcon, setToIcon] = useState<IIcon>(() => IconFadDuplicate)
   const [seo, setSeo] = useAtom(seoAtom)
@@ -128,8 +126,8 @@ export function Kitchen() {
 
   return (
     <div className='flex flex-col items-center select-none'>
-      <div className='sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-3 md:p-8'>
-        <div className='absolute right-3 bottom-3 flex items-center gap-x-2'>
+      <div className='sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-6 md:p-8'>
+        <div className='absolute right-1 bottom-1 flex items-center gap-x-2 md:right-3 md:bottom-3'>
           <Link
             href={`/${i18n.locale === 'en' ? 'zh' : '/'}`}
             onClick={handleLangChange}
