@@ -1,13 +1,15 @@
-import { WEBSITE } from './constants'
+import { getWebsite } from './constants'
 import type { MetadataRoute } from 'next'
 
 export const dynamic = 'force-static'
 
 export default function manifest(): MetadataRoute.Manifest {
+  const webSize = getWebsite()
+
   return {
-    name: WEBSITE.title,
-    short_name: WEBSITE.title,
-    description: WEBSITE.description,
+    name: webSize.title,
+    short_name: webSize.title,
+    description: webSize.description,
     start_url: '/',
     theme_color: '#ffffff',
     background_color: '#ffffff',
