@@ -63,9 +63,7 @@ export function getWebsite(lang?: SupportedLocale) {
     domain: isDev
       ? // eslint-disable-next-line n/prefer-global/process
         process.env.__NEXT_PRIVATE_ORIGIN!
-      : isZh
-        ? 'https://emoji.aiwan.run/zh'
-        : 'https://emoji.aiwan.run',
+      : 'https://emoji.aiwan.run',
     email: 'me@aiwan.run',
     social: {
       twitter: '@Debbl66',
