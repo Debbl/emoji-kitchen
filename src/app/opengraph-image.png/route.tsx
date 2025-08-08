@@ -28,56 +28,25 @@ export async function GET() {
           }}
         >
           <svg
-            viewBox='0 0 36 36'
             fill='none'
             role='img'
             xmlns='http://www.w3.org/2000/svg'
             width='100'
             height='100'
+            viewBox='0 0 16 16'
           >
-            <mask
-              id='mask__beam'
-              maskUnits='userSpaceOnUse'
+            <rect
               x='0'
               y='0'
-              width='36'
-              height='36'
-            >
-              <rect width='36' height='36' fill='#FFFFFF'></rect>
-            </mask>
-            <g mask='url(#mask__beam)'>
-              <rect width='36' height='36' fill='#f2e0a0'></rect>
-              <rect
-                x='0'
-                y='0'
-                width='36'
-                height='36'
-                transform='translate(-4 8) rotate(168 18 18) scale(1)'
-                fill='#8cb0b0'
-                rx='36'
-              ></rect>
-              <g transform='translate(0 4) rotate(-8 18 18)'>
-                <path d='M13,19 a1,0.75 0 0,0 10,0' fill='#000000'></path>
-                <rect
-                  x='11'
-                  y='14'
-                  width='1.5'
-                  height='2'
-                  rx='1'
-                  stroke='none'
-                  fill='#000000'
-                ></rect>
-                <rect
-                  x='23'
-                  y='14'
-                  width='1.5'
-                  height='2'
-                  rx='1'
-                  stroke='none'
-                  fill='#000000'
-                ></rect>
-              </g>
-            </g>
+              width='16'
+              height='16'
+              fill='none'
+              stroke='none'
+            ></rect>
+            <path
+              fill='#f8e158'
+              d='M13 7a6 6 0 1 0-5.746 5.995A4.472 4.472 0 0 1 7.027 12H7a5 5 0 1 1 5-5v.027c.345.039.678.116.995.227C12.998 7.17 13 7.085 13 7Zm-5.888 3.498c.084-.368.212-.719.38-1.046a2.493 2.493 0 0 1-2.356-.785a.5.5 0 0 0-.745.666a3.493 3.493 0 0 0 2.72 1.165ZM6 6a.75.75 0 1 1-1.5 0A.75.75 0 0 1 6 6Zm2.75.75a.75.75 0 1 0 0-1.5a.75.75 0 0 0 0 1.5ZM15 11.5a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0Zm-3-2a.5.5 0 0 0-1 0V11H9.5a.5.5 0 0 0 0 1H11v1.5a.5.5 0 0 0 1 0V12h1.5a.5.5 0 0 0 0-1H12V9.5Z'
+            ></path>
           </svg>
         </div>
 

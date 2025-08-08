@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 'use client'
 import { useLingui } from '@lingui/react'
 import { Trans } from '@lingui/react/macro'
@@ -79,6 +78,16 @@ export function Kitchen() {
         [c]: randomEmoji,
       }))
   }
+  const downloadImg = async (blob: Blob) => {
+    const url = URL.createObjectURL(blob)
+
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'emoji-kitchen.png'
+    a.target = '_blank'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
 
   const copyImg = async (imgUrl: string) => {
     const response = await fetch(imgUrl, {
@@ -95,11 +104,12 @@ export function Kitchen() {
         setToIcon(() => IconFadDuplicate)
         clearTimeout(id)
       }, 600)
+
       if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-        window.alert('部分浏览器可能无法复制图片，建议使用电脑端复制!')
+        downloadImg(blob)
       }
     } catch {
-      window.alert('浏览器暂不支持复制命令')
+      downloadImg(blob)
     }
   }
   const random = () => {
