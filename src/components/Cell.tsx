@@ -24,8 +24,8 @@ const Cell = ({
     <div className='flex flex-col items-center gap-y-3'>
       <div
         className={cn(
-          'cursor-pointer rounded-lg p-3 hover:bg-gray-100',
-          isCurrent && 'bg-gray-200',
+          'hover:bg-muted cursor-pointer rounded-lg p-3 transition-colors',
+          isCurrent && 'bg-muted',
           !isHydrated && 'bg-accent animate-pulse',
         )}
       >
@@ -45,7 +45,7 @@ const Cell = ({
 
       <Icon
         onClick={iconClick}
-        className='cursor-pointer rounded-full text-2xl hover:bg-gray-300 md:text-3xl'
+        className='hover:bg-muted-foreground text-primary cursor-pointer rounded-full text-2xl md:text-3xl'
         icon={icon}
       />
     </div>

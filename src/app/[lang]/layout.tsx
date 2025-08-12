@@ -134,11 +134,7 @@ export default async function RootLayout({
         >
           <NuqsAdapter>
             <Provider>
-              <ThemeProvider
-                attribute='class'
-                defaultTheme='system'
-                enableSystem
-              >
+              <ThemeProvider attribute='class' defaultTheme='dark' enableSystem>
                 {children}
                 <Toaster richColors />
               </ThemeProvider>

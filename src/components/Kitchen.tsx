@@ -2,7 +2,8 @@
 import { Trans, useLingui } from '@lingui/react/macro'
 import * as clipboard from 'clipboard-polyfill'
 import { useSetAtom } from 'jotai'
-import { LanguagesIcon, LinkIcon } from 'lucide-react'
+import { LanguagesIcon, LinkIcon, MoonIcon, SunIcon } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import Link from 'next/link'
 import { parseAsString, useQueryStates } from 'nuqs'
@@ -48,6 +49,7 @@ export function Kitchen() {
       },
     },
   )
+  const { resolvedTheme, setTheme } = useTheme()
   const [current, setCurrent] = useState<'left' | 'right'>('left')
   const [toIcon, setToIcon] = useState<IIcon>(() => IconFadDuplicate)
   const setLang = useSetAtom(langAtom)
@@ -145,7 +147,7 @@ export function Kitchen() {
 
   return (
     <div className='flex flex-col items-center select-none'>
-      <div className='sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border bg-gray-50 p-6 md:p-8'>
+      <div className='bg-background border-border sticky top-4 z-10 inline-flex flex-col items-center justify-center rounded-lg border p-6 md:p-8'>
         <div className='absolute right-1 bottom-1 flex items-center gap-x-2 md:right-3 md:bottom-3'>
           <Link
             href={`/${i18n.locale === 'en' ? 'zh' : '/'}`}
@@ -175,6 +177,16 @@ export function Kitchen() {
             }}
           >
             <LinkIcon />
+          </Button>
+          <Button
+            className='size-4'
+            variant='ghost'
+            size='icon'
+            onClick={() =>
+              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+            }
+          >
+            {resolvedTheme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </Button>
         </div>
 
