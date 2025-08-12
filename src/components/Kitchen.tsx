@@ -31,7 +31,6 @@ const getRawUrl = (v?: string) => {
 }
 
 export function Kitchen() {
-  // const [emoji, setEmoji] = useAtom(emojiAtom)
   const [emoji, setEmoji] = useQueryStates(
     {
       left: parseAsString.withDefault('1fa84').withOptions({

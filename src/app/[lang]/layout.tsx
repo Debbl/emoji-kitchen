@@ -111,7 +111,7 @@ export default async function RootLayout({
   const webSize = getWebsite(lang)
 
   return (
-    <html lang={lang}>
+    <html lang={lang} suppressHydrationWarning>
       <head>
         <script
           defer
