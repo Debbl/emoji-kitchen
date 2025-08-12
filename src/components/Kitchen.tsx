@@ -1,15 +1,14 @@
 'use client'
-import { useLingui } from '@lingui/react'
-import { Trans } from '@lingui/react/macro'
+import { Trans, useLingui } from '@lingui/react/macro'
 import * as clipboard from 'clipboard-polyfill'
-import { useAtom, useSetAtom } from 'jotai'
-import { BookMinusIcon, BookPlusIcon, LanguagesIcon } from 'lucide-react'
+import { useSetAtom } from 'jotai'
+import { CopyIcon, LanguagesIcon, LinkIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { parseAsString, useQueryStates } from 'nuqs'
 import { useMemo, useState } from 'react'
-import { emojiAtom } from '~/atoms/emoji'
+import { toast } from 'sonner'
 import { langAtom } from '~/atoms/lang'
-import { seoAtom } from '~/atoms/seo'
 import { emojiData, knownSupportedEmoji } from '~/constants'
 import Icon, {
   IconCarbonLogoGithub,
@@ -32,12 +31,28 @@ const getRawUrl = (v?: string) => {
 }
 
 export function Kitchen() {
-  const [emoji, setEmoji] = useAtom(emojiAtom)
+  // const [emoji, setEmoji] = useAtom(emojiAtom)
+  const [emoji, setEmoji] = useQueryStates(
+    {
+      left: parseAsString.withDefault('1fa84').withOptions({
+        clearOnDefault: true,
+      }),
+      right: parseAsString.withDefault('1f349').withOptions({
+        clearOnDefault: true,
+      }),
+    },
+    {
+      clearOnDefault: true,
+      urlKeys: {
+        left: 'l',
+        right: 'r',
+      },
+    },
+  )
   const [current, setCurrent] = useState<'left' | 'right'>('left')
   const [toIcon, setToIcon] = useState<IIcon>(() => IconFadDuplicate)
-  const [seo, setSeo] = useAtom(seoAtom)
   const setLang = useSetAtom(langAtom)
-  const { i18n } = useLingui()
+  const { i18n, t } = useLingui()
 
   const toUrl = useMemo(() => {
     if (!emoji.left || !emoji.right) return ''
@@ -105,9 +120,7 @@ export function Kitchen() {
         clearTimeout(id)
       }, 600)
 
-      if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-        downloadImg(blob)
-      }
+      downloadImg(blob)
     } catch {
       downloadImg(blob)
     }
@@ -123,10 +136,7 @@ export function Kitchen() {
     setEmoji({ left, right })
   }
   const reset = () => {
-    setEmoji({
-      left: '',
-      right: '',
-    })
+    setEmoji(null)
   }
 
   const handleLangChange = () => {
@@ -154,11 +164,18 @@ export function Kitchen() {
           </Link>
           <Button
             className='size-4'
-            variant='outline'
+            variant='ghost'
             size='icon'
-            onClick={() => setSeo(!seo)}
+            onClick={() => {
+              const url = window.location.href
+              navigator.clipboard.writeText(url)
+              toast.success(t`Copied to clipboard`, {
+                position: 'top-center',
+                description: t`your can share this emoji to your friends`,
+              })
+            }}
           >
-            {seo ? <BookMinusIcon /> : <BookPlusIcon />}
+            <LinkIcon />
           </Button>
         </div>
 
@@ -220,7 +237,7 @@ export function Kitchen() {
                   ? 'cursor-pointer'
                   : 'cursor-not-allowed opacity-50'
               }`}
-              alt={v}
+              alt={`emoji-${v}`}
               onClick={() => allowList.includes(v) && handleClick(v)}
               src={`${`${rawUrl}/${v.split('-')[0].padStart(4, '0')}`}.svg`}
             />

@@ -1,6 +1,9 @@
 import { setI18n } from '@lingui/react/server'
 import { Provider } from 'jotai'
+import { ThemeProvider } from 'next-themes'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { getWebsite } from '~/app/constants'
+import { Toaster } from '~/components/ui/snoner'
 import { getI18nInstance } from '~/i18n'
 import { linguiConfig } from '~/i18n/config'
 import { LinguiClientProvider } from '~/providers/lingui-client-provider'
@@ -129,7 +132,18 @@ export default async function RootLayout({
           locales={i18n.locales as unknown as SupportedLocales}
           messages={i18n.messages}
         >
-          <Provider>{children}</Provider>
+          <NuqsAdapter>
+            <Provider>
+              <ThemeProvider
+                attribute='class'
+                defaultTheme='system'
+                enableSystem
+              >
+                {children}
+                <Toaster richColors />
+              </ThemeProvider>
+            </Provider>
+          </NuqsAdapter>
         </LinguiClientProvider>
       </body>
     </html>

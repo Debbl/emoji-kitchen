@@ -6,11 +6,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/components/Kitchen.tsx:173
+#: src/components/Kitchen.tsx:174
+msgid "Copied to clipboard"
+msgstr "Copied to clipboard"
+
+#: src/components/Kitchen.tsx:215
 msgid "Random"
 msgstr "Random"
 
-#: src/components/Kitchen.tsx:182
+#: src/components/Kitchen.tsx:224
 msgid "Reset"
 msgstr "Reset"
+
+#: src/components/Kitchen.tsx:176
+msgid "your can share this emoji to your friends"
+msgstr "your can share this emoji to your friends"

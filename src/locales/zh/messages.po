@@ -6,11 +6,25 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: zh\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
 
-#: src/components/Kitchen.tsx:173
+#: src/components/Kitchen.tsx:174
+msgid "Copied to clipboard"
+msgstr "已复制到剪贴板"
+
+#: src/components/Kitchen.tsx:215
 msgid "Random"
 msgstr "随机"
 
-#: src/components/Kitchen.tsx:182
+#: src/components/Kitchen.tsx:224
 msgid "Reset"
 msgstr "全部清除"
+
+#: src/components/Kitchen.tsx:176
+msgid "your can share this emoji to your friends"
+msgstr "你可以将这个表情分享给你的朋友"
