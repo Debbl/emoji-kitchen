@@ -45,7 +45,7 @@ const Cell = ({
 
       <Icon
         onClick={iconClick}
-        className='hover:bg-muted-foreground text-primary cursor-pointer rounded-full text-2xl md:text-3xl'
+        className='hover:bg-accent text-primary cursor-pointer rounded-full text-2xl md:text-3xl'
         icon={icon}
       />
     </div>
