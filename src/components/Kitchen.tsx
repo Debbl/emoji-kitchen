@@ -2,7 +2,7 @@
 import { Trans, useLingui } from '@lingui/react/macro'
 import * as clipboard from 'clipboard-polyfill'
 import { useSetAtom } from 'jotai'
-import { CopyIcon, LanguagesIcon, LinkIcon } from 'lucide-react'
+import { LanguagesIcon, LinkIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { parseAsString, useQueryStates } from 'nuqs'
